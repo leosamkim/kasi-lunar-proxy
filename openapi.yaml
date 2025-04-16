@@ -1,0 +1,58 @@
+openapi: 3.1.0
+info:
+  title: 음양력 변환 API (KASI 프록시)
+  version: 1.0.0
+  description: 한국천문연구원 음양력 변환 API를 호출하는 프록시 인터페이스입니다.
+servers:
+  - url: https://kasi-lunar-proxy-leosamkim.vercel.app/api
+    description: 프록시 서버 (Vercel)
+paths:
+  /:
+    post:
+      operationId: convertLunarSolar
+      summary: 양력과 음력을 상호 변환합니다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                solYear:
+                  type: string
+                  example: "2025"
+                solMonth:
+                  type: string
+                  example: "05"
+                solDay:
+                  type: string
+                  example: "01"
+                lunLeap:
+                  type: string
+                  enum: ["0", "1"]
+                  example: "0"
+                type:
+                  type: string
+                  enum: ["SOLAR_TO_LUNAR", "LUNAR_TO_SOLAR"]
+                  example: "SOLAR_TO_LUNAR"
+      responses:
+        '200':
+          description: 변환된 날짜 정보
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  RESULT:
+                    type: object
+                    properties:
+                      CODE:
+                        type: string
+                      MESSAGE:
+                        type: string
+                  solCal:
+                    type: string
+                  lunCal:
+                    type: string
+                  lunLeap:
+                    type: string
