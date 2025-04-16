@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "음양력 변환 프록시 API",
+  "name_for_model": "lunarConverter",
+  "description_for_human": "양력과 음력을 상호 변환하는 API입니다.",
+  "description_for_model": "사용자의 입력 날짜를 기반으로 음력 또는 양력을 계산해주는 API.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://kasi-lunar-proxy-fwgu.vercel.app/openapi.yaml"
+  },
+  "logo_url": "https://kasi-lunar-proxy-fwgu.vercel.app/logo.png",
+  "contact_email": "your@email.com",
+  "legal_info_url": "https://example.com/legal"
+}
